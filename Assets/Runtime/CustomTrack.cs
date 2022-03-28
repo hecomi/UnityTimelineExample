@@ -15,10 +15,12 @@ public class CustomTrack : TrackAsset
 {
     public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
     {
-        foreach (var clip in GetClips())
+        foreach (var timelineClip in GetClips())
         {
-            //clip.displayName = " ";
+            var clip = timelineClip.asset as CustomClip;
+            clip.durationInTrack = (float)timelineClip.duration;
         }
+
         return ScriptPlayable<CustomMixer>.Create(graph, inputCount);
     }
 }

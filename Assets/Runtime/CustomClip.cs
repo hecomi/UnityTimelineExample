@@ -11,8 +11,7 @@ using System.ComponentModel;
 public class CustomClip : PlayableAsset, ITimelineClipAsset
 {
     public Gradient gradient;
-
-    public override double duration { get => 1f; }
+    public float durationInTrack { get; set; }
 
     public ClipCaps clipCaps
     {
