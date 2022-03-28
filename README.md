@@ -3,6 +3,10 @@ Unity Timeline Example
 
 This is a sample project of the timeline that I explain in my blog post. It shows simple tracks and clips that reflect colors using `Gradient` to `Material.color` and how to decorate them.
 
+Blog Post
+---------
+
+[Unity で Timeline のカスタムトラックおよびクリップを作成して見た目をキレイにしてみた - 凹みTips](https://tips.hecomi.com/entry/2022/03/28/235336)
 
 Screen Shots
 ------------
