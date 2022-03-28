@@ -51,13 +51,15 @@ public class CustomClipEditor : ClipEditor
             if (tex) return tex;
         }
 
-        var b = (float)(clip.blendInDuration / clip.duration);
+        var bi = (float)(clip.blendInDuration / clip.duration);
+        var bo = (float)(clip.blendOutDuration / clip.duration);
         tex = new Texture2D(128, 1);
         for (int i = 0; i < tex.width; ++i)
         {
             var t = (float)i / tex.width;
             var color = customClip.gradient.Evaluate(t);
-            if (b > 1f) color.a = Mathf.Min(t / b, 1f);
+            if (bi > 0f) color.a *= Mathf.Min(t / bi, 1f);
+            if (bo > 0f) color.a *= Mathf.Min((1f - t) / bo, 1f);
             tex.SetPixel(i, 0, color);
         }
         tex.Apply();
